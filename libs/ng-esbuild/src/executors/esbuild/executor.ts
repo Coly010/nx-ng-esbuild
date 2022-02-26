@@ -24,12 +24,12 @@ export default async function runExecutor(
   const esbuild = esbuilder({
     ...esbuildOptions,
     plugins: [
-      assetResolver(options, context),
       indexFileProcessor(options, context),
       zoneJsPlugin(),
       angularComponentDecoratorPlugin(options, context),
       cssResolver(options, context),
       jsResolver(options, context),
+      assetResolver(options, context),
     ],
   });
   try {

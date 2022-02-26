@@ -42,4 +42,11 @@ nx run app1:esbuild
 
 - Not ready for production!!
 - Doesn't hash files
-- Seems to be an issue copying assets
+- Dry Run likely doesn't work
+- Doesn't use a built in cache
+- Doesn't support watch
+- Larger bundle size than Angular Builder
+
+## Contributing
+
+Feel free to! Should be straightforward. The issues above are likely good ones to address.

@@ -1,5 +1,6 @@
 import { ExecutorContext, joinPathFragments } from '@nrwl/devkit';
-import { copyFileSync, existsSync } from 'fs';
+import { existsSync, copyFileSync, mkdirSync, lstatSync } from 'fs';
+import { copySync } from 'fs-extra';
 import { EsBuildExecutorSchema } from '../../schema';
 
 export const assetResolver = (
@@ -9,14 +10,27 @@ export const assetResolver = (
   return {
     name: 'angularAssetsResolver',
     setup: async () => {
-      for (const assetResource of options.assets) {
-        if (typeof assetResolver === 'string') {
-          const assetPath = joinPathFragments(context.cwd, assetResource);
-          if (!existsSync(assetPath)) {
-            continue;
-          }
+      const pathToBuiltApp = joinPathFragments(context.cwd, options.outdir);
+      if (!existsSync(pathToBuiltApp)) {
+        mkdirSync(pathToBuiltApp);
+      }
 
-          copyFileSync(assetPath, options.outdir);
+      for (const assetResource of options.assets) {
+        const assetPath = joinPathFragments(context.cwd, assetResource);
+        if (!existsSync(assetPath)) {
+          continue;
+        }
+
+        if (lstatSync(assetPath).isDirectory()) {
+          copySync(
+            assetPath,
+            joinPathFragments(options.outdir, assetPath.split('/').at(-1))
+          );
+        } else {
+          copyFileSync(
+            assetPath,
+            joinPathFragments(options.outdir, assetPath.split('/').at(-1))
+          );
         }
       }
     },
