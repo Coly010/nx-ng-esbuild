@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "esbuild": {
+      "implementation": "./src/executors/esbuild/executor",
+      "schema": "./src/executors/esbuild/schema.json",
+      "description": "esbuild executor"
+    }
+  }
+}

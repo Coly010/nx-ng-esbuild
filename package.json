@@ -34,9 +34,12 @@
     "@angular/language-service": "~13.2.0",
     "@nrwl/cli": "13.8.3",
     "@nrwl/cypress": "13.8.3",
+    "@nrwl/devkit": "13.8.3",
     "@nrwl/eslint-plugin-nx": "13.8.3",
     "@nrwl/jest": "13.8.3",
     "@nrwl/linter": "13.8.3",
+    "@nrwl/node": "13.8.3",
+    "@nrwl/nx-plugin": "^13.8.3",
     "@nrwl/tao": "13.8.3",
     "@nrwl/workspace": "13.8.3",
     "@types/jest": "27.0.2",
@@ -52,6 +55,7 @@
     "ngc-esbuild": "^0.0.75",
     "prettier": "^2.5.1",
     "ts-jest": "27.0.5",
+    "tslib": "^2.0.0",
     "typescript": "~4.5.2"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "root": "apps/ng-esbuild-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/ng-esbuild-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "ng-esbuild:build",
+        "jestConfig": "apps/ng-esbuild-e2e/jest.config.js"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["ng-esbuild"]
+}

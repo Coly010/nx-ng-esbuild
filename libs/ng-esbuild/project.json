@@ -1,0 +1,56 @@
+{
+  "root": "libs/ng-esbuild",
+  "sourceRoot": "libs/ng-esbuild/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ng-esbuild/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ng-esbuild"],
+      "options": {
+        "jestConfig": "libs/ng-esbuild/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ng-esbuild",
+        "tsConfig": "libs/ng-esbuild/tsconfig.lib.json",
+        "packageJson": "libs/ng-esbuild/package.json",
+        "main": "libs/ng-esbuild/src/index.ts",
+        "assets": [
+          "libs/ng-esbuild/*.md",
+          {
+            "input": "./libs/ng-esbuild/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/ng-esbuild/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/ng-esbuild",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/ng-esbuild",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

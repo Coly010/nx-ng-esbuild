@@ -51,6 +51,14 @@
       },
       "defaultConfiguration": "production"
     },
+    "esbuild": {
+      "executor": "../../dist/libs/ng-esbuild:esbuild",
+      "options": {
+        "entryPoints": ["apps/app1/src/main.ts"],
+        "outdir": "dist/apps/app1",
+        "tsconfig": "apps/app1/tsconfig.app.json"
+      }
+    },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {

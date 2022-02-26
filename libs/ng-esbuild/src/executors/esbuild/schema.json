@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Build executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "port": {
+      "type": "number",
+      "description": "Port to serve the application",
+      "default": 4200
+    },
+    "open": {
+      "type": "boolean",
+      "description": "Open the browser when serving the application",
+      "default": false
+    },
+    "serve": {
+      "type": "boolean",
+      "description": "Serve the application",
+      "default": false
+    },
+    "entryPoints": {
+      "type": "array",
+      "description": "Array of entry points to the application"
+    },
+    "bundle": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "outfile": {
+      "type": "string",
+      "description": ""
+    },
+    "outdir": {
+      "type": "string",
+      "description": ""
+    },
+    "external": {
+      "type": "array",
+      "description": "",
+      "default": []
+    },
+    "format": {
+      "type": "string",
+      "description": "",
+      "default": "esm"
+    },
+    "inject": {
+      "type": "array",
+      "description": "",
+      "default": []
+    },
+    "minify": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "platform": {
+      "type": "string",
+      "description": "",
+      "default": "browser"
+    },
+    "sourcemap": {
+      "type": "boolean",
+      "description": "",
+      "default": false
+    },
+    "splitting": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "target": {
+      "type": "array",
+      "description": "",
+      "default": ["es2020"]
+    },
+    "watch": {
+      "type": "boolean",
+      "description": "",
+      "default": false
+    },
+    "write": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "allowOverwrite": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "metafile": {
+      "type": "boolean",
+      "description": "",
+      "default": false
+    },
+    "treeShaking": {
+      "type": "boolean",
+      "description": "",
+      "default": true
+    },
+    "tsconfig": {
+      "type": "string",
+      "description": ""
+    },
+    "tsconfigRaw": {
+      "type": "string",
+      "description": ""
+    },
+    "absWorkingDir": {
+      "type": "string",
+      "description": ""
+    }
+  },
+  "required": []
+}
