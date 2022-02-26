@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "app1": "apps/app1",
+    "app1-e2e": "apps/app1-e2e"
+  }
+}
