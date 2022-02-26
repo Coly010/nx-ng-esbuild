@@ -5,20 +5,21 @@
   "description": "",
   "type": "object",
   "properties": {
-    "port": {
-      "type": "number",
-      "description": "Port to serve the application",
-      "default": 4200
+    "assets": {
+      "type": "array",
+      "description": "Path to assets for the application"
     },
-    "open": {
-      "type": "boolean",
-      "description": "Open the browser when serving the application",
-      "default": false
+    "styles": {
+      "type": "array",
+      "description": "Styles to include in the application"
     },
-    "serve": {
-      "type": "boolean",
-      "description": "Serve the application",
-      "default": false
+    "scripts": {
+      "type": "array",
+      "description": "Scripts to inject into the application"
+    },
+    "index": {
+      "type": "string",
+      "description": "Path to the index.html file"
     },
     "entryPoints": {
       "type": "array",

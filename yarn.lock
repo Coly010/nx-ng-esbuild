@@ -1711,7 +1711,7 @@
     tslib "^2.3.0"
     webpack-node-externals "^3.0.0"
 
-"@nrwl/devkit@13.8.3":
+"@nrwl/devkit@13.8.3", "@nrwl/devkit@~13.8.3":
   version "13.8.3"
   resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-13.8.3.tgz#93ff131897585f1e8eb5f3c45f79c67bf02186b6"
   integrity sha512-XPmG9mSvPsJnqJ1mQ6ufnoh0Ow2p8SM1U9V2gHBo3y5mBI+VVBSFrLuDBYbMAPFtHN7nt9ANjqtxD1+G+DKWtw==
@@ -4490,7 +4490,7 @@ esbuild@0.14.22:
     esbuild-windows-64 "0.14.22"
     esbuild-windows-arm64 "0.14.22"
 
-esbuild@^0.14.11:
+esbuild@^0.14.11, esbuild@^0.14.23, esbuild@~0.14.23:
   version "0.14.23"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.14.23.tgz#95e842cb22bc0c7d82c140adc16788aac91469fe"
   integrity sha512-XjnIcZ9KB6lfonCa+jRguXyRYcldmkyZ99ieDksqW/C8bnyEX299yA4QH2XcgijCgaddEZePPTgvx/2imsq7Ig==
@@ -6283,6 +6283,15 @@ jest-worker@^27.2.2, jest-worker@^27.4.5, jest-worker@^27.4.6, jest-worker@^27.5
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jest-worker@~28.0.0-alpha.5:
+  version "28.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-28.0.0-alpha.5.tgz#2e6a6f3b24702bbe8e7f83a257f90d0f0735f030"
+  integrity sha512-YGSvc62CdAAPKCNHDXo8L45FXATSbKs4Ao9FVcj7ESbSshVp0yuzC6uWOcJXN9Ju6BBotgj/QZw+yC3VlKvWgQ==
+  dependencies:
+    "@types/node" "*"
+    merge-stream "^2.0.0"
+    supports-color "^8.0.0"
+
 jest@27.2.3:
   version "27.2.3"
   resolved "https://registry.yarnpkg.com/jest/-/jest-27.2.3.tgz#9c2af9ce874a3eb202f83d92fbc1cc61ccc73248"
@@ -7121,6 +7130,22 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
+nx-ng-esbuild@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/nx-ng-esbuild/-/nx-ng-esbuild-0.1.1.tgz#72e6f89c405e7c9467d9275a86066b987faf664c"
+  integrity sha512-Ttmzp1kHDG3Zoi5MIKA7DnArEs7qkyzVstjl2ro3Scm4oyN+R4XfVhsJs7ZXqA+7ZB/lr5MsO0bq4OMvc5bKOQ==
+  dependencies:
+    "@angular/compiler" "~13.2.0"
+    "@angular/core" "~13.2.0"
+    "@angular/platform-browser-dynamic" "~13.2.0"
+    "@nrwl/devkit" "~13.8.3"
+    esbuild "~0.14.23"
+    jest-worker "~28.0.0-alpha.5"
+    postcss "~8.4.7"
+    postcss-prefix-selector "~1.14.0"
+    sass "~1.49.9"
+    zone.js "~0.11.4"
+
 nx@13.8.3:
   version "13.8.3"
   resolved "https://registry.yarnpkg.com/nx/-/nx-13.8.3.tgz#2735376b25207be7580b97fdea670973491e0308"
@@ -7643,7 +7668,7 @@ postcss-place@^7.0.3:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-prefix-selector@^1.14.0:
+postcss-prefix-selector@^1.14.0, postcss-prefix-selector@~1.14.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/postcss-prefix-selector/-/postcss-prefix-selector-1.14.0.tgz#93b8433074b7aadc5715d57379475246341cfb2d"
   integrity sha512-8d5fiBQZWMtGWH/7ewEeo6RnBNyT2kLD5wTIfV2oHYqH4hjiofg/rP5X3SUwnqOINzE4mM/K/UOAiNrIaKzd4w==
@@ -7728,7 +7753,7 @@ postcss@8.4.5:
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
 
-postcss@^8.2.14, postcss@^8.2.15, postcss@^8.3.7, postcss@^8.4.6:
+postcss@^8.2.14, postcss@^8.2.15, postcss@^8.3.7, postcss@^8.4.6, postcss@^8.4.7, postcss@~8.4.7:
   version "8.4.7"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.7.tgz#f99862069ec4541de386bf57f5660a6c7a0875a8"
   integrity sha512-L9Ye3r6hkkCeOETQX6iOaWZgjp3LL6Lpqm6EtgbKrgqGGteRMNb9vzBfRL96YOSu8o7x3MfIH9Mo5cPJFGrW6A==
@@ -8159,7 +8184,7 @@ sass@1.49.0:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
-sass@^1.47.0:
+sass@^1.47.0, sass@^1.49.9, sass@~1.49.9:
   version "1.49.9"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.9.tgz#b15a189ecb0ca9e24634bae5d1ebc191809712f9"
   integrity sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==

@@ -1,7 +1,10 @@
 export interface EsBuildExecutorSchema {
-  port: number;
-  open: boolean;
-  serve: boolean;
+  // angular options
+  assets: string[];
+  index: string;
+  styles: string[];
+  scripts: string[];
+  // esbuild options
   entryPoints: string[];
   bundle: boolean;
   outfile: string;
