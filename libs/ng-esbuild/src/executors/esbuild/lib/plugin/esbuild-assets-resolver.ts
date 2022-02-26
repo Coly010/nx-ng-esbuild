@@ -12,7 +12,7 @@ export const assetResolver = (
     setup: async () => {
       const pathToBuiltApp = joinPathFragments(context.cwd, options.outdir);
       if (!existsSync(pathToBuiltApp)) {
-        mkdirSync(pathToBuiltApp);
+        mkdirSync(pathToBuiltApp, { recursive: true });
       }
 
       for (const assetResource of options.assets) {

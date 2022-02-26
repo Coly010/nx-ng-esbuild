@@ -7137,10 +7137,10 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
-nx-ng-esbuild@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/nx-ng-esbuild/-/nx-ng-esbuild-0.1.7.tgz#adf62a5faae68fc2a14fd83da24270695d1203b1"
-  integrity sha512-xzHpOa1MyxcjfJDmmNU7Bt8OHDvpqCzsVBmp1vByBG6SpyaUKLfFoVlJY9IMS7D1EikdGuI7zdNDmVctfpJtjQ==
+nx-ng-esbuild@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/nx-ng-esbuild/-/nx-ng-esbuild-0.1.8.tgz#183f44eeacf71ca6bc6e2fb5550d6aa6410ead52"
+  integrity sha512-uPDmcMsyEwJOYPU3z43onPBh8nHbHGod87lp5vmg7Z+ajEI/6vKZShcGcipFRzWKeGMSmorLTKu0HM2AlJ3oOg==
   dependencies:
     "@angular/compiler" "~13.2.0"
     "@angular/core" "~13.2.0"
