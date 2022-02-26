@@ -1,105 +1,45 @@
+# Nx Plugin Repo for ESBuild of Angular
 
+> Note: This uses work from https://github.com/cherryApp/ngc-esbuild
+> Go send them love!
 
-# NxNgEsbuild
+Plugin to help you use ESBuild with Angular in an Nx Workspace
 
-This project was generated using [Nx](https://nx.dev).
+## Usage
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+First install the Nx Plugin
 
-🔎 **Smart, Fast and Extensible Build System**
+```bash
+npm install --save-dev nx-ng-esbuild
 
-## Quick Start & Documentation
+yarn add -D nx-ng-esbuild
+```
 
-[Nx Documentation](https://nx.dev/angular)
+Next, create a new configuration in the `angular.json`/`workspace.json`/`project.json` for your app. (Replace `app1` and other options to match your setup);
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+```json
+"esbuild": {
+  "executor": "nx-ng-esbuild:esbuild",
+  "options": {
+    "entryPoints": ["apps/app1/src/main.ts"],
+    "outdir": "dist/apps/app1",
+    "index": "apps/app1/src/index.html",
+    "assets": ["apps/app1/src/favicon.ico", "apps/app1/src/assets"],
+    "styles": ["apps/app1/src/styles.scss"],
+    "scripts": [],
+    "tsconfig": "apps/app1/tsconfig.app.json"
+  }
+}
+```
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+Run the build
 
-## Adding capabilities to your workspace
+```bash
+nx run app1:esbuild
+```
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Notes
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@nx-ng-esbuild/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- Not ready for production!!
+- Doesn't hash files
+- Seems to be an issue copying assets
