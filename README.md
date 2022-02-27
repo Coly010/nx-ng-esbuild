@@ -32,10 +32,34 @@ Next, create a new configuration in the `angular.json`/`workspace.json`/`project
 }
 ```
 
+### Building
+
 Run the build
 
 ```bash
 nx run app1:esbuild
+```
+
+You can also pass the `--watch=true` flag to have it rebuild on changes.
+
+```bash
+nx run app1:esbuild --watch=true
+```
+
+### Serving
+
+It also supports serving locally for rapid development
+
+You can also pass the `--serve=true` glag to have it serve the app on a basic http server. By default this was also set `--watch=true`
+
+```bash
+nx run app1:esbuild --serve=true
+```
+
+You can customise the port to serve on with the `--port` flag:
+
+```bash
+nx run app1:esbuild --serve=true --port=4201
 ```
 
 ## Notes
@@ -44,7 +68,6 @@ nx run app1:esbuild
 - Doesn't hash files
 - Dry Run likely doesn't work
 - Doesn't use a built in cache
-- Doesn't support watch
 - Larger bundle size than Angular Builder
 
 ## Contributing
