@@ -65,6 +65,7 @@ nx run app1:esbuild --serve=true --port=4201
 ## Notes
 
 - Not ready for production!!
+- Doesn't run type checking!
 - Doesn't hash files
 - Dry Run likely doesn't work
 - Doesn't use a built in cache
