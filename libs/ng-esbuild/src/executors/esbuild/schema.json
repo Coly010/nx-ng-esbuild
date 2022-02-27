@@ -5,6 +5,16 @@
   "description": "",
   "type": "object",
   "properties": {
+    "serve": {
+      "type": "boolean",
+      "description": "Serve the result of the build on a local http server for development.",
+      "default": false
+    },
+    "port": {
+      "type": "number",
+      "description": "Port on the local server to host the application files",
+      "default": 4200
+    },
     "assets": {
       "type": "array",
       "description": "Path to assets for the application"

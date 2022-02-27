@@ -1,6 +1,6 @@
 {
   "name": "nx-ng-esbuild",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
@@ -10,6 +10,7 @@
     "postcss-prefix-selector": "~1.14.0",
     "sass": "~1.49.9",
     "@nrwl/devkit": "~13.8.3",
-    "fs-extra": "~10.0.1"
+    "fs-extra": "~10.0.1",
+    "ws": "~8.5.0"
   }
 }

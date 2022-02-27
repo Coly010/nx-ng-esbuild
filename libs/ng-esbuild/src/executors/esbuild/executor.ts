@@ -7,9 +7,10 @@ import { zoneJsPlugin } from './lib/plugin/esbuild-plugin-zonejs';
 import { angularComponentDecoratorPlugin } from './lib/plugin/esbuild-component-decorator';
 import { cssResolver } from './lib/plugin/esbuild-css-resolver';
 import { jsResolver } from './lib/plugin/esbuild-js-resolver';
+import { createAsyncIterable } from './lib/create-async-iteratable';
 import { existsSync, rmSync } from 'fs';
 
-export default async function runExecutor(
+export default async function* runExecutor(
   options: EsBuildExecutorSchema,
   context: ExecutorContext
 ) {
@@ -19,26 +20,53 @@ export default async function runExecutor(
     rmSync(outputPath, { recursive: true });
   }
 
-  const { index, assets, styles, scripts, ...esbuildOptions } = options;
+  const { index, assets, styles, scripts, serve, port, ...esbuildOptions } =
+    options;
 
-  const esbuild = esbuilder({
-    ...esbuildOptions,
-    plugins: [
-      indexFileProcessor(options, context),
-      zoneJsPlugin(),
-      angularComponentDecoratorPlugin(options, context),
-      cssResolver(options, context),
-      jsResolver(options, context),
-      assetResolver(options, context),
-    ],
-  });
-  try {
-    await esbuild;
-  } catch (e) {
-    throw new Error('Building app with ESBuild failed with: ' + e.message);
+  const esbuild = esbuilder(
+    {
+      ...esbuildOptions,
+      watch: serve ? true : esbuildOptions.watch,
+      plugins: [
+        indexFileProcessor(options, context),
+        zoneJsPlugin(),
+        angularComponentDecoratorPlugin(options, context),
+        cssResolver(options, context),
+        jsResolver(options, context),
+        assetResolver(options, context),
+      ],
+    },
+    serve,
+    port
+  );
+
+  if (options.watch || options.serve) {
+    return yield* createAsyncIterable<{ success: boolean; outfile: string }>(
+      async ({ next, done }) => {
+        esbuild.then((result) => {
+          console.timeEnd('Building app with ESBuild completed in');
+          if (options.serve) {
+            console.log(
+              `Live server has been started at http://localhost:${port}/`
+            );
+          }
+          console.log('ESBuild is watching for changes...');
+          next({ success: result.errors?.length < 1, outfile: outputPath });
+        });
+      }
+    );
   }
 
-  console.timeEnd('Building app with ESBuild completed in');
-
-  return { success: true };
+  return esbuild
+    .then((result) => {
+      if (result.errors?.length > 0) {
+        throw new Error('ESBuild failed: \n' + result.errors.join('\n'));
+      }
+      console.timeEnd('Building app with ESBuild completed in');
+      return { success: true };
+    })
+    .catch((error) => {
+      console.error(error);
+      return { success: false, error };
+    });
 }
