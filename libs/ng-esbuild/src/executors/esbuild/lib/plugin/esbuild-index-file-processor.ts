@@ -1,4 +1,5 @@
 import { ExecutorContext, joinPathFragments } from '@nrwl/devkit';
+import { PluginBuild } from 'esbuild';
 import { readFileSync, writeFileSync } from 'fs';
 import { EsBuildExecutorSchema } from '../../schema';
 
@@ -15,7 +16,7 @@ export const indexFileProcessor = (
 ) => {
   return {
     name: 'indexProcessor',
-    setup: async (build) => {
+    setup: async (build: PluginBuild) => {
       const indexFilePath = options.index;
 
       build.onStart(() => {

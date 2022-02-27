@@ -9,6 +9,7 @@ import { cssResolver } from './lib/plugin/esbuild-css-resolver';
 import { jsResolver } from './lib/plugin/esbuild-js-resolver';
 import { createAsyncIterable } from './lib/create-async-iteratable';
 import { existsSync, rmSync } from 'fs';
+import { analyzeMetafileSync } from 'esbuild';
 
 export default async function* runExecutor(
   options: EsBuildExecutorSchema,
@@ -63,6 +64,10 @@ export default async function* runExecutor(
         throw new Error('ESBuild failed: \n' + result.errors.join('\n'));
       }
       console.timeEnd('Building app with ESBuild completed in');
+      result.metafile &&
+        console.log(
+          analyzeMetafileSync(result.metafile, { verbose: context.isVerbose })
+        );
       return { success: true };
     })
     .catch((error) => {
