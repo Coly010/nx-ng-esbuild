@@ -3,6 +3,10 @@
   "projects": {
     "app1": "apps/app1",
     "app1-e2e": "apps/app1-e2e",
+    "app2": "apps/app2",
+    "app2-e2e": "apps/app2-e2e",
+    "app3": "apps/app3",
+    "app3-e2e": "apps/app3-e2e",
     "ng-esbuild": "libs/ng-esbuild",
     "ng-esbuild-e2e": "apps/ng-esbuild-e2e"
   }

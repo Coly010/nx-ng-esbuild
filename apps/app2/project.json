@@ -1,0 +1,100 @@
+{
+  "projectType": "application",
+  "root": "apps/app2",
+  "sourceRoot": "apps/app2/src",
+  "prefix": "nx-ng-esbuild",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/app2",
+        "index": "apps/app2/src/index.html",
+        "main": "apps/app2/src/main.ts",
+        "polyfills": "apps/app2/src/polyfills.ts",
+        "tsConfig": "apps/app2/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/app2/src/favicon.ico", "apps/app2/src/assets"],
+        "styles": ["apps/app2/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/app2/src/environments/environment.ts",
+              "with": "apps/app2/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "app2:build:production"
+        },
+        "development": {
+          "browserTarget": "app2:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app2:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/app2/src/**/*.ts", "apps/app2/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app2"],
+      "options": {
+        "jestConfig": "apps/app2/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "esbuild": {
+      "executor": "nx-ng-esbuild:esbuild",
+      "options": {
+        "entryPoints": ["apps/app2/src/main.ts"],
+        "outdir": "dist/apps/app2",
+        "index": "apps/app2/src/index.html",
+        "assets": ["apps/app2/src/favicon.ico", "apps/app2/src/assets"],
+        "styles": ["apps/app2/src/styles.scss"],
+        "scripts": [],
+        "tsconfig": "apps/app2/tsconfig.app.json"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "AddEsbuildConfig",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "appName": {
+      "type": "string",
+      "description": "Name of app to add the setup to",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of app to add the setup to?"
+    },
+    "targetName": {
+      "type": "string",
+      "description": "Name of target to create",
+      "default": "esbuild"
+    }
+  },
+  "required": ["appName"]
+}

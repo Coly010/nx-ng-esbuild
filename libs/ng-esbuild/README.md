@@ -15,21 +15,18 @@ npm install --save-dev nx-ng-esbuild
 yarn add -D nx-ng-esbuild
 ```
 
-Next, create a new configuration in the `angular.json`/`workspace.json`/`project.json` for your app. (Replace `app1` and other options to match your setup);
+### Add Configuration
 
-```json
-"esbuild": {
-  "executor": "nx-ng-esbuild:esbuild",
-  "options": {
-    "entryPoints": ["apps/app1/src/main.ts"],
-    "outdir": "dist/apps/app1",
-    "index": "apps/app1/src/index.html",
-    "assets": ["apps/app1/src/favicon.ico", "apps/app1/src/assets"],
-    "styles": ["apps/app1/src/styles.scss"],
-    "scripts": [],
-    "tsconfig": "apps/app1/tsconfig.app.json"
-  }
-}
+If you have an existing application that you would like to use esbuild with, you can run the following command
+
+```bash
+nx g nx-ng-esbuild:add-esbuild-config appName
+```
+
+Or, alternatively, if you want to generate a new Angular app with esbuild support, you can run the following
+
+```bash
+nx g nx-ng-esbuild:app appName
 ```
 
 ### Building
@@ -65,6 +62,7 @@ nx run app1:esbuild --serve=true --port=4201
 ## Notes
 
 - Not ready for production!!
+- Doesn't run type checking!
 - Doesn't hash files
 - Dry Run likely doesn't work
 - Doesn't use a built in cache
