@@ -5,7 +5,7 @@ module.exports = {
   coverageDirectory: '../../coverage/apps/app1',
   transform: {
     '^.+\\.(ts|mjs|js)$': [
-      'ng-estest',
+      '<rootDir>/../../dist/libs/ng-estest/src/index.js',
       { tsconfig: 'apps/app1/tsconfig.spec.json' },
     ],
     // '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
