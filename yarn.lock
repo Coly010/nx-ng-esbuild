@@ -6091,7 +6091,7 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
-jest-preset-angular@11.1.1:
+jest-preset-angular@11.1.1, jest-preset-angular@~11.1.1:
   version "11.1.1"
   resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-11.1.1.tgz#cc1c0a1395727af332c439174fb689d92e853f6a"
   integrity sha512-ZlYiKJhAQSU9wIjncX59xutcj49R4MiDsTPSwZiwdTAHQvHm32MS6SGimQIVBqh1DukfwYX0NXKS0D/onLAsLQ==
@@ -6966,13 +6966,19 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-estest@0.1.0:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/ng-estest/-/ng-estest-0.0.1.tgz#e3bfa3e4a001985d03c0cf96b9285c2710a97ce6"
-  integrity sha512-l11p0piEY/Wod/a9rxYcVYtrCIa8+ae5ez1w1T1iGdlDAjNMgO//KfchoaeRB/OwJLiM30k+AX9fpKlbvtWEng==
+ng-estest@latest:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ng-estest/-/ng-estest-0.2.0.tgz#0295e462ef40387f0633e9deb1350f860ac61e65"
+  integrity sha512-yzf7rY4va3hvEUS2sA+ypn1E5lSGzsIxx9k0/0OUbqdpsgZ2GgwXqlROrQuQNIKWCKvftpZQFVGEaKHza14eAg==
   dependencies:
     "@angular/compiler" "~13.2.0"
     "@angular/core" "~13.2.0"
+    "@nrwl/devkit" "~13.8.3"
+    esbuild "~0.14.23"
+    jest-preset-angular "~11.1.1"
+    postcss "~8.4.7"
+    postcss-prefix-selector "~1.14.0"
+    sass "~1.49.9"
 
 ngc-esbuild@^0.0.75:
   version "0.0.75"
@@ -7145,20 +7151,22 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
-nx-ng-esbuild@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/nx-ng-esbuild/-/nx-ng-esbuild-0.1.8.tgz#183f44eeacf71ca6bc6e2fb5550d6aa6410ead52"
-  integrity sha512-uPDmcMsyEwJOYPU3z43onPBh8nHbHGod87lp5vmg7Z+ajEI/6vKZShcGcipFRzWKeGMSmorLTKu0HM2AlJ3oOg==
+nx-ng-esbuild@latest:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/nx-ng-esbuild/-/nx-ng-esbuild-0.5.0.tgz#5d9ad1d94e260c003fce59d55549dd34d1e35a4c"
+  integrity sha512-pxdTSpOPWD7vTXWbX5vrN6guPDRH/OF8hRCFXvbnj5gyyOTZThOQgulvldro9Dk3Z7OWaU5Vclqbz4/kx/QMWw==
   dependencies:
     "@angular/compiler" "~13.2.0"
     "@angular/core" "~13.2.0"
     "@angular/platform-browser-dynamic" "~13.2.0"
+    "@nrwl/angular" "13.8.3"
     "@nrwl/devkit" "~13.8.3"
     esbuild "~0.14.23"
     fs-extra "~10.0.1"
     postcss "~8.4.7"
     postcss-prefix-selector "~1.14.0"
     sass "~1.49.9"
+    ws "~8.5.0"
     zone.js "~0.11.4"
 
 nx@13.8.3:
@@ -9430,7 +9438,7 @@ ws@^7.4.6:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.7.tgz#9e0ac77ee50af70d58326ecff7e85eb3fa375e67"
   integrity sha512-KMvVuFzpKBuiIXW3E4u3mySRO2/mCHSyZDJQM5NQ9Q9KHWHWh0NHgfbRMLLrceUK5qAL4ytALJbpRMjixFZh8A==
 
-ws@^8.1.0, ws@^8.4.0, ws@^8.5.0:
+ws@^8.1.0, ws@^8.4.0, ws@^8.5.0, ws@~8.5.0:
   version "8.5.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.5.0.tgz#bfb4be96600757fe5382de12c670dab984a1ed4f"
   integrity sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==

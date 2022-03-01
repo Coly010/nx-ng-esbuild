@@ -14,6 +14,10 @@ export const process = (
     transformerConfig: { tsconfig: string };
   }
 ) => {
+  if (options.cacheFS.has(fileName)) {
+    return options.cacheFS.get(fileName);
+  }
+
   const { tsconfig } = options.transformerConfig;
   if (!(tsconfig in rawTsConfig)) {
     rawTsConfig[tsconfig] = readFileSync(tsconfig, 'utf-8');
