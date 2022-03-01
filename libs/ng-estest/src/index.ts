@@ -1,3 +1,3 @@
-import { process } from './lib/estest';
+import { process, getCacheKey } from './lib/estest';
 
-module.exports = { process };
+module.exports = { process, getCacheKey };

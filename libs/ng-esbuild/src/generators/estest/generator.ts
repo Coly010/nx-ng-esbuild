@@ -52,7 +52,7 @@ export default async function (tree: Tree, options: EstestGeneratorSchema) {
   const installTask = addDependenciesToPackageJson(
     tree,
     {},
-    { 'ng-estest': '0.2.2' }
+    { 'ng-estest': '0.3.0' }
   );
 
   await formatFiles(tree);

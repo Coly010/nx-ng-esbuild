@@ -1,6 +1,6 @@
 {
   "name": "nx-ng-esbuild",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": "Colum Ferry",
   "license": "MIT",
   "main": "src/index.js",

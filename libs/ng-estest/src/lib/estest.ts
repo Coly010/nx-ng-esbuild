@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { transformSync } from 'esbuild';
 import { readFileSync } from 'fs';
 
@@ -43,4 +44,26 @@ export const process = (
   return contents;
 };
 
-export default { process };
+export const getCacheKey = (fileData: string, filePath: string) => {
+  return sha1(fileData + filePath);
+};
+
+export const cache: { [key: string]: string } = Object.create(null);
+
+function sha1(data: string): string {
+  // caching
+  const cacheKey = data;
+  if (cacheKey in cache) {
+    return cache[cacheKey];
+  }
+
+  // we use SHA1 because it's the fastest provided by node
+  // and we are not concerned about security here
+  const hash = createHash('sha1');
+  hash.update(data, 'utf8');
+  const res = hash.digest('hex').toString();
+
+  cache[cacheKey] = res;
+
+  return res;
+}
