@@ -59,6 +59,20 @@ You can customise the port to serve on with the `--port` flag:
 nx run app1:esbuild --serve=true --port=4201
 ```
 
+### Adding Testing Configuration
+
+To add esbuild-based testing to your Angular app, you can use the following command to generate a config to do just that!
+
+```bash
+nx g nx-ng-esbuild:estest appName
+```
+
+It will create an `estest` target that you can then run using:
+
+```bash
+nx estest appName
+```
+
 ## Notes
 
 - Not ready for production!!
