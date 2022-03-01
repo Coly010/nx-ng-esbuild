@@ -1,4 +1,15 @@
 {
   "name": "ng-estest",
-  "version": "0.0.1"
+  "version": "0.1.0",
+  "author": "Colum Ferry",
+  "license": "MIT",
+  "main": "src/index.js",
+  "dependencies": {
+    "esbuild": "~0.14.23",
+    "postcss": "~8.4.7",
+    "postcss-prefix-selector": "~1.14.0",
+    "sass": "~1.49.9",
+    "@nrwl/devkit": "~13.8.3",
+    "jest-preset-angular": "~11.1.1"
+  }
 }

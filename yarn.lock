@@ -6966,6 +6966,14 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+ng-estest@0.1.0:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ng-estest/-/ng-estest-0.0.1.tgz#e3bfa3e4a001985d03c0cf96b9285c2710a97ce6"
+  integrity sha512-l11p0piEY/Wod/a9rxYcVYtrCIa8+ae5ez1w1T1iGdlDAjNMgO//KfchoaeRB/OwJLiM30k+AX9fpKlbvtWEng==
+  dependencies:
+    "@angular/compiler" "~13.2.0"
+    "@angular/core" "~13.2.0"
+
 ngc-esbuild@^0.0.75:
   version "0.0.75"
   resolved "https://registry.yarnpkg.com/ngc-esbuild/-/ngc-esbuild-0.0.75.tgz#dad91f9f377e5756070ec6710963b1acc4c1f435"

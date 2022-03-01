@@ -7,6 +7,8 @@
     "app2-e2e": "apps/app2-e2e",
     "app3": "apps/app3",
     "app3-e2e": "apps/app3-e2e",
+    "app4": "apps/app4",
+    "app4-e2e": "apps/app4-e2e",
     "ng-esbuild": "libs/ng-esbuild",
     "ng-esbuild-e2e": "apps/ng-esbuild-e2e",
     "ng-estest": "libs/ng-estest"

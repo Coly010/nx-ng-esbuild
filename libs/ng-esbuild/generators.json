@@ -12,6 +12,11 @@
       "factory": "./src/generators/app/generator",
       "schema": "./src/generators/app/schema.json",
       "description": "app generator"
+    },
+    "estest": {
+      "factory": "./src/generators/estest/generator",
+      "schema": "./src/generators/estest/schema.json",
+      "description": "estest generator"
     }
   }
 }
