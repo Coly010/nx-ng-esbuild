@@ -1,13 +1,32 @@
 import { transformSync } from 'esbuild';
+import { readFileSync } from 'fs';
 
 import { transformComponentDecorators } from './plugin/esbuild-component-decorator';
 import { zoneJsTransformer } from './plugin/esbuild-plugin-zonejs';
 
-export const process = (src: string, fileName: string) => {
+const rawTsConfig: { [key: string]: string } = {};
+
+export const process = (
+  src: string,
+  fileName: string,
+  options: {
+    cacheFS: Map<string, string>;
+    transformerConfig: { tsconfig: string };
+  }
+) => {
+  const { tsconfig } = options.transformerConfig;
+  if (!(tsconfig in rawTsConfig)) {
+    rawTsConfig[tsconfig] = readFileSync(tsconfig, 'utf-8');
+  }
+
   if (fileName.endsWith('.html')) {
-    return transformSync(src, {
+    const contents = transformSync(src, {
       loader: 'text',
     }).code;
+
+    options.cacheFS.set(fileName, contents);
+
+    return contents;
   }
   if (!fileName.includes('node_modules')) {
     src = transformComponentDecorators(src, fileName);
@@ -16,7 +35,10 @@ export const process = (src: string, fileName: string) => {
   const contents = transformSync(src, {
     loader: 'ts',
     format: 'cjs',
+    tsconfigRaw: rawTsConfig[tsconfig],
   }).code;
+
+  options.cacheFS.set(fileName, contents);
 
   return contents;
 };

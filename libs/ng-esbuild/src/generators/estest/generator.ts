@@ -37,7 +37,7 @@ export default async function (tree: Tree, options: EstestGeneratorSchema) {
     preset: '${offset}jest.preset.js',
     coverageDirectory: '${offset}coverage/libs/app0/lib0-lib0',
     transform: {
-      '^.+\\.(ts|mjs|js)$': 'ng-estest',
+      '^.+\\.(ts|mjs|js)$': ['ng-estest', {tsconfig: '${project.root}/tsconfig.spec.json'}],
     },
     transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     snapshotSerializers: [

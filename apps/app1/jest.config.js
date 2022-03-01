@@ -4,7 +4,10 @@ module.exports = {
   // setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/apps/app1',
   transform: {
-    '^.+\\.(ts|mjs|js)$': 'ng-estest',
+    '^.+\\.(ts|mjs|js)$': [
+      'ng-estest',
+      { tsconfig: 'apps/app1/tsconfig.spec.json' },
+    ],
     // '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
