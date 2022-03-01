@@ -1,0 +1,34 @@
+{
+  "root": "libs/ng-estest",
+  "sourceRoot": "libs/ng-estest/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ng-estest/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ng-estest"],
+      "options": {
+        "jestConfig": "libs/ng-estest/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ng-estest",
+        "tsConfig": "libs/ng-estest/tsconfig.lib.json",
+        "packageJson": "libs/ng-estest/package.json",
+        "main": "libs/ng-estest/src/index.ts",
+        "assets": ["libs/ng-estest/*.md"]
+      }
+    }
+  },
+  "tags": []
+}

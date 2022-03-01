@@ -83,6 +83,14 @@
         "passWithNoTests": true
       }
     },
+    "estest": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app2"],
+      "options": {
+        "jestConfig": "apps/app2/jest-es.config.js",
+        "passWithNoTests": true
+      }
+    },
     "esbuild": {
       "executor": "nx-ng-esbuild:esbuild",
       "options": {

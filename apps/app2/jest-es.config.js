@@ -1,11 +1,9 @@
 module.exports = {
-  displayName: 'app1',
+  displayName: 'app2',
   preset: '../../jest.preset.js',
-  // setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/app1',
+  coverageDirectory: '../../coverage/apps/app2',
   transform: {
     '^.+\\.(ts|mjs|js)$': 'ng-estest',
-    // '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
   snapshotSerializers: [

@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-ng-esbuild/ng-esbuild": ["libs/ng-esbuild/src/index.ts"]
+      "@nx-ng-esbuild/ng-esbuild": ["libs/ng-esbuild/src/index.ts"],
+      "ng-estest": ["libs/ng-estest/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
