@@ -2,8 +2,6 @@ import { joinPathFragments } from '@nrwl/devkit';
 import { readFileSync } from 'fs';
 import { dirname, resolve } from 'path';
 
-import { scssProcessor } from '../scss-worker';
-
 const getValueByPattern = (regex = new RegExp(''), str = '') => {
   const results = [];
 
@@ -17,25 +15,9 @@ const getValueByPattern = (regex = new RegExp(''), str = '') => {
 };
 
 const injectStyle = (filename: string, contents = '') => {
-  const styleUrls = getValueByPattern(
-    /^ *styleUrls *: *\[['"]([^'"\]]*)/gm,
-    contents
-  );
-
-  let fileContent = '';
-  if (styleUrls) {
-    fileContent = scssProcessor(
-      JSON.stringify({
-        scssPath: joinPathFragments(dirname(filename), styleUrls),
-        projectDir: dirname(filename),
-        outDir: dirname(filename),
-      })
-    );
-  }
-
   return contents.replace(
     /^ *styleUrls *: *\[['"]([^'"\]]*)['"]\],*/gm,
-    `    styles: [\`${fileContent}\`],`
+    `    styles: [],`
   );
 };
 
